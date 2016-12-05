@@ -1,0 +1,10 @@
+<head>
+    <title>Custom Registration Tutorial</title>
+</head>
+<body>
+  {{#if currentUser}}
+    {{> dashboard}}
+  {{else}}
+    {{> login}}
+  {{/if}}
+</body>

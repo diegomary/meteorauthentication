@@ -1,0 +1,24 @@
+<template name="login">
+  {{#if isloginVisible}}
+  <div class="login">
+  	<h1>Login</h1>
+      <form class="js-login-form" method="post">
+      	<input type="text" name="userNameReg" placeholder="Username or email" autocomplete="off" required="required" />
+        <input type="password" name="pwdReg" placeholder="Password" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Login.</button>
+        <a class="jq-link-register" href="#">Register</a>
+      </form>
+  </div>
+  {{else}}
+  <div class="login">
+  <h1>Register</h1>
+    <form class="js-register-form" method="post">
+      <input type="text" name="userNameReg" placeholder="Username" autocomplete="off" required="required" />
+      <input type="email" name="emailReg" placeholder="Email" autocomplete="off" required="required" />
+      <input type="password" name="pwdReg" placeholder="Password" required="required" />
+      <button type="submit" class="btn btn-primary btn-block btn-large">Register</button>
+      <a class="jq-link-login" href="#">Login</a>
+    </form>
+  </div>
+  {{/if}}
+</template>
