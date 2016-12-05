@@ -1,24 +1,34 @@
 <template name="login">
   {{#if isloginVisible}}
-  <div class="login">
-  	<h1>Login</h1>
-      <form class="js-login-form" method="post">
-      	<input type="text" name="userNameReg" placeholder="Username or email" autocomplete="off" required="required" />
-        <input type="password" name="pwdReg" placeholder="Password" required="required" />
-        <button type="submit" class="btn btn-primary btn-block btn-large">Login.</button>
-        <a class="jq-link-register" href="#">Register</a>
-      </form>
-  </div>
-  {{else}}
-  <div class="login">
-  <h1>Register</h1>
-    <form class="js-register-form" method="post">
-      <input type="text" name="userNameReg" placeholder="Username" autocomplete="off" required="required" />
-      <input type="email" name="emailReg" placeholder="Email" autocomplete="off" required="required" />
-      <input type="password" name="pwdReg" placeholder="Password" required="required" />
-      <button type="submit" class="btn btn-primary btn-block btn-large">Register</button>
-      <a class="jq-link-login" href="#">Login</a>
+  <div class="container">
+    <form class="js-login-form form-signin">
+      <h2 class="form-signin-heading">Please sign in</h2>
+      <label for="inputEmail" >Email address</label>
+      <input  autofocus="" type="text" class="form-control" name="userNameReg" placeholder="Username or email" autocomplete="off" required="required" />
+      <label for="inputPassword" >Password</label>
+      <input type="password" class="form-control" name="pwdReg" placeholder="Password" required="required" />
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="btn  btn-primary btn-block" type="submit">Sign in</button>
+      <a class="jq-link-register" href="#">register</a>
     </form>
-  </div>
-  {{/if}}
+ </div>
+{{else}}
+<div class="container">
+  <form class="js-register-form form-signin">
+    <h2 class="form-signin-heading">Please register</h2>
+    <label for="userNameReg" >Username</label>
+    <input  autofocus="" type="text" class="form-control" name="userNameReg" placeholder="Username" autocomplete="off" required="required" />
+    <label for="emailReg" >Email address</label>
+    <input  autofocus="" type="text" class="form-control" name="emailReg" placeholder="Email address" autocomplete="off" required="required" />
+    <label for="inputPassword" >Password</label>
+    <p><input type="password" class="form-control" name="pwdReg" placeholder="Password" required="required" /></p>
+    <button class="btn  btn-primary btn-block" type="submit">Sign in</button>
+  <a class="jq-link-login" href="#">sign in</a>
+  </form>
+</div>
+{{/if}}
 </template>
