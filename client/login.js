@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
+import { Session } from 'meteor/session'
 import './login.html';
 
 Template.login.onCreated(function helloOnCreated() {
@@ -29,10 +30,11 @@ Template.login.events({
           email: event.target.emailReg.value,
           profile: {
             firstName: "PlaceHolder",
-            lastName: "Secondplaceholder"
+            lastName: "Secondplaceholder",
+            role: "Administrator"
           }
         };
-    Accounts.createUser(user, function (error) {
+  Accounts.createUser(user, function (error) {
       if (error) {
         console.log(error);
       }
@@ -41,14 +43,19 @@ Template.login.events({
   },
 
   'submit .js-login-form'(event, instance) {
-  event.preventDefault();
-  var username = event.target.userNameReg.value;
-  var password = event.target.pwdReg.value;
-  Meteor.loginWithPassword(username, password, function(error) {
-    if(error){
-        console.log(error.reason);
-    } else {}
-    });
+    event.preventDefault();
+    var username = event.target.userNameReg.value;
+    var password = event.target.pwdReg.value;
+    Meteor.loginWithPassword(username, password, function(error) {
+      if(error){
+          console.log(error.reason);
+      } else {}
+      });
   },
+
+  'change .js-remember-me'(event, instance) {
+    Session.set("remember_me", event.currentTarget.checked);
+  },
+
 
 });
